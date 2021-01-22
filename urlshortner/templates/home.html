@@ -1,0 +1,68 @@
+{% extends 'base.html'%}
+{% block content%}
+<main>
+    <section class="py-5 text-center bg-dark text-white">
+        <div class="container">
+            <div class="row py-lg-5">
+                <div class="col-lg-6 col-md-8 mx-auto">
+                    <h1 class="fw-light">URL Shortner</h1>
+                    <p class="lead text-muted">Something short and leading about the collection below—its contents, the
+                        creator,
+                        etc.</p>
+
+                    {% if request.user.is_authenticated %}
+                    <h3>Hello, <span class="text-primary">{{request.user}}</span></h3>
+
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="py-4 text-center bg-white">
+        <div class="container">
+            <div class="row py-lg-5">
+                <div class="col-lg-10 col-md-10 py-4 mx-auto main_shortner_form">
+                    <form class="row g-3" method="POST">{%csrf_token%}
+                        {% if request.user.is_authenticated %}
+                        <div class="col-md-8">
+                            {%else%}
+                            <div class="col-md-10">
+                                {%endif%}
+                                <input type="text" class="form-control" id="staticUrl" placeholder="paste url"
+                                    name="URL">
+                            </div>
+                            {% if request.user.is_authenticated %}
+                            <div class="col-md-2">
+                                <input type="text" class="form-control" id="alias" placeholder="Alias" name="alias">
+                            </div>
+                            {%endif%}
+
+                            <div class="col-md-2">
+                                <button type="submit" class="btn btn-primary mb-3">short url</button>
+                            </div>
+
+                    </form>
+                </div>
+                <div class="col-lg-10 col-md-10 mx-auto my-5">
+                    {% if not request.user.is_authenticated %}
+                    <div class="col-md-12">
+                        <p>Register for more features
+                            <a href="{%url 'register'%}">Register</a>
+                        </p>
+                        <p>
+                            or
+                            <a href="{%url 'login'%}">login</a> if you have an account
+                        </p>
+
+                    </div>
+                    {%endif%}
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+</main>
+
+{% endblock%}

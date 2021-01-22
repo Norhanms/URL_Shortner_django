@@ -1,0 +1,67 @@
+{% extends 'base.html'%}
+
+{% block content%}
+<section class="py-4 text-center container bg-dark">
+    <div class="row py-lg-5">
+        <div class="col-lg-10 col-md-10 mx-auto">
+            <form class="row g-3" method="POST">{%csrf_token%}
+                <div class="col-md-8">
+
+                    <input type="text" class="form-control" id="staticUrl" placeholder="paste url" name="URL">
+                </div>
+                <div class="col-md-2">
+                    <input type="text" class="form-control" id="alias" placeholder="Alias" name="alias">
+                </div>
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-primary mb-3">short url</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
+<section class="py-5 text-center container">
+    <div class="row bg-white">
+        <div class="col-md-12 mx-auto">
+            <table class="table  table-striped ">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">URL</th>
+                        <th scope="col">Shorted url</th>
+                        <th scope="col">Clicked</th>
+                        <th scope="col">Created date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <th scope="row">1</th>
+                        <td>
+                            <input type="text" name="" id=""
+                                value="https://www.linkedin.com/learning/python-for-data-science-essential-training-part-1/introduction-to-the-data-professions"
+                                class="form-control" readonly>
+                        </td>
+                        <td class="d-flex align-items-center">
+                            <input type="text" name="" id="" value="http://127.0.0.1:8000/dashboard/tbl"
+                                class="form-control" readonly>
+                            <span class="ml-2" style="cursor:pointer;" id="copyBtn">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-stickies" viewBox="0 0 16 16">
+                                    <path
+                                        d="M1.5 0A1.5 1.5 0 0 0 0 1.5V13a1 1 0 0 0 1 1V1.5a.5.5 0 0 1 .5-.5H14a1 1 0 0 0-1-1H1.5z" />
+                                    <path
+                                        d="M3.5 2A1.5 1.5 0 0 0 2 3.5v11A1.5 1.5 0 0 0 3.5 16h6.086a1.5 1.5 0 0 0 1.06-.44l4.915-4.914A1.5 1.5 0 0 0 16 9.586V3.5A1.5 1.5 0 0 0 14.5 2h-11zM3 3.5a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 .5.5V9h-4.5A1.5 1.5 0 0 0 9 10.5V15H3.5a.5.5 0 0 1-.5-.5v-11zm7 11.293V10.5a.5.5 0 0 1 .5-.5h4.293L10 14.793z" />
+                                </svg>
+                            </span>
+
+                        </td>
+                        <td>1</td>
+                        <td>22-1-2021</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</section>
+{% endblock content%}

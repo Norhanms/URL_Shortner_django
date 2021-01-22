@@ -1,0 +1,31 @@
+{% extends 'base.html'%}
+{% block content%}
+<div class="card container mt-5">
+    <h1 class="text-center">Register Your info</h1>
+    <hr>
+    <form action="" method="POST">{%csrf_token%}
+        <div class="mb-3">
+            <label for="username_register" class="form-label">Username</label>
+            <input type="text" class="form-control" id="username_register" placeholder="user name"
+                name="username_register" required>
+        </div>
+        <div class="mb-3">
+            <label for="email_register" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email_register" placeholder="Email" name="email_register"
+                required>
+        </div>
+        <div class="mb-3">
+            <label for="passwrod_register" class="form-label">Password</label>
+            <input type="password" class="form-control" id="passwrod_register" name="password_register" required>
+        </div>
+        <!--
+        <div class="text-left">
+            <a class="text-decoration-none" href="#">forget password</a>
+        </div>
+    -->
+        <button type="submit" class="btn btn-lg btn-primary my-3">login</button>
+
+</div>
+</form>
+
+{% endblock%}
