@@ -4,6 +4,7 @@ from django.contrib import auth, messages
 from django.contrib.sites.shortcuts import get_current_site
 import random
 import string
+import json
 
 
 def getAlias(l):
@@ -32,6 +33,23 @@ def dashboard(request):
     return render(request, 'dashboard.html', {"domain": site})
 
 
-def home(request):
-    print("home")
-    return render(request, 'home.html', {})
+def redirect_to_target_page(request, alias):
+    obj = Url.objects.get(alias=alias)
+    URL = obj.target_url
+    return redirect(URL)
+
+
+def stats(request, alias):
+    current_obj = Url.objects.filter(alias=alias)
+    site = get_current_site(request)
+    data = current_obj[0]
+    context = {
+        'originalUrl': data.target_url,
+        'alias': data.alias,
+        'dateTime': data.timestamp,
+        'domain': site
+
+    }
+    print(context)
+    # print(context['obj'].target_url)
+    return render(request, 'stats.html', context)

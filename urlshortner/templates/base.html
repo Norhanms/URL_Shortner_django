@@ -87,17 +87,15 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js"
         integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj"
         crossorigin="anonymous"></script>
+    <script src="{% static 'js/main.js'%}"></script>
     <script type="text/javascript">
-        //console.log("Hello")
+
         const myModal = new bootstrap.Modal(document.getElementById('myModal'));
-        //myModal.show();
-        //console.log(myModal);
         const modalBody = document.getElementById("modalBody");
         const modalTitle = document.getElementById("modalLabel");
-        console.log(modalBody);
-        console.log(modalTitle)
+
         "{% for msg in messages %}"
-        console.log("from for loop");
+
         modalBody.innerText = "{{msg}}";
         modalTitle.innerText = "{{msg.tags}}";
         myModal.show();

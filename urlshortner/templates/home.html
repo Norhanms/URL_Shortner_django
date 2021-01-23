@@ -6,9 +6,7 @@
             <div class="row py-lg-5">
                 <div class="col-lg-6 col-md-8 mx-auto">
                     <h1 class="fw-light">URL Shortner</h1>
-                    <p class="lead text-muted">Something short and leading about the collection below—its contents, the
-                        creator,
-                        etc.</p>
+                    <p class="lead text-muted">Shorten your urls fast and easy with our URL Shortner</p>
 
                     {% if request.user.is_authenticated %}
                     <h3>Hello, <span class="text-primary">{{request.user}}</span></h3>
@@ -23,9 +21,12 @@
             <div class="row py-lg-5">
                 <div class="col-lg-10 col-md-10 py-4 mx-auto main_shortner_form bg-light">
                     {% if request.user.is_authenticated %}
-                    <form class="row g-3 home_form" method="POST" action="{%url 'dashboard' %}">{%csrf_token%}
+                    <form name="ShortnerFormHome" id="homeShortnerForm" class="row g-3 home_form" method="POST"
+                        action="{%url 'dashboard' %}">
+                        {%csrf_token%}
                         {%else%}
-                        <form class="row g-3 home_form" method="POST" action="{%url 'home' %}">{%csrf_token%}
+                        <form name="ShortnerFormHome" id="homeShortnerForm" class="row g-3 home_form" method="POST"
+                            action="{%url 'home' %}">{%csrf_token%}
                             {%endif%}
                             {% if request.user.is_authenticated %}
                             <div class=" col-md-8">
@@ -42,11 +43,23 @@
                                 {%endif%}
 
                                 <div class="col-md-2">
-                                    <button type="submit" class="btn btn-primary mb-3">short url</button>
+                                    <button type="button" value="submit" id="submitBtnHome"
+                                        class="btn btn-primary mb-3">short
+                                        url</button>
                                 </div>
 
                         </form>
                 </div>
+
+                {% if not request.user.is_authenticated %}
+                {% if url %}
+                <div class="col-lg-10 col-md-10 mx-auto my-5">
+                    <div class="alert alert-success">
+                        {{domain}}/{{alias}}
+                    </div>
+                </div>
+                {%endif%}
+                {%endif%}
                 <div class="col-lg-10 col-md-10 mx-auto my-5">
                     {% if not request.user.is_authenticated %}
                     <div class="col-md-12">

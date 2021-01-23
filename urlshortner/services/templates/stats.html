@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+{% block content%}
+
+<div class="starter-template text-center py-5 px-3">
+    <h1>Shorted URL statistics</h1>
+</div>
+<hr>
+<div class="container">
+
+    <div class="row mb-3">
+        <div class="col-4 themed-grid-col">
+            <h5>Original url</h5>
+        </div>
+        <div class="col-8 themed-grid-col"><a href="{{originalUrl}}">{{originalUrl}}</a></div>
+
+    </div>
+    <hr>
+    <div class="row mb-3">
+        <div class="col-4 themed-grid-col">
+            <h5> Shorted url</h5>
+        </div>
+        <div class="col-8 themed-grid-col"><a href="{{domain}}/{{alias}}">{{domain}}/{{alias}}</a></div>
+
+    </div>
+    <hr>
+    <div class="row mb-3">
+        <div class="col-4 themed-grid-col">
+            <h5> alias</h5>
+        </div>
+        <div class="col-8 themed-grid-col">{{alias}}</div>
+
+    </div>
+    <hr>
+    <div class="row mb-3">
+        <div class="col-4 themed-grid-col">
+            <h5> created date/time</h5>
+        </div>
+        <div class="col-8 themed-grid-col">{{dateTime}}</div>
+
+    </div>
+
+</div>
+
+{% endblock%}
