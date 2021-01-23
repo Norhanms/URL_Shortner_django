@@ -33,16 +33,17 @@
                     </tr>
                 </thead>
                 <tbody>
+                    {% for url in request.user.url_set.all %}
                     <tr>
-                        <th scope="row">1</th>
+
+                        <th scope="row">{{forloop.counter}}</th>
                         <td>
-                            <input type="text" name="" id=""
-                                value="https://www.linkedin.com/learning/python-for-data-science-essential-training-part-1/introduction-to-the-data-professions"
+                            <input type="text" name="" id="" value="{{url.target_url}}" title="{{url.target_url}}"
                                 class="form-control" readonly>
                         </td>
                         <td class="d-flex align-items-center">
-                            <input type="text" name="" id="" value="http://127.0.0.1:8000/dashboard/tbl"
-                                class="form-control" readonly>
+                            <input type="text" name="" id="" value="{{domain}}/{{url.alias}}"
+                                title="{{domain}}/{{url.alias}}" class="form-control" readonly>
                             <span class="ml-2" style="cursor:pointer;" id="copyBtn">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                     class="bi bi-stickies" viewBox="0 0 16 16">
@@ -54,10 +55,11 @@
                             </span>
 
                         </td>
-                        <td>1</td>
-                        <td>22-1-2021</td>
-                    </tr>
+                        <td>0</td>
+                        <td>{{url.timestamp}}</td>
 
+                    </tr>
+                    {%endfor%}
                 </tbody>
             </table>
         </div>

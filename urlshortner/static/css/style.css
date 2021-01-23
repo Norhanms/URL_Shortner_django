@@ -1,3 +1,8 @@
 .main_shortner_form {
     box-shadow: 2px 2px 10px #222;
+    
+}
+
+.home_form input[type='text'] {
+    border: 1px solid #0B5ED7;
 }
