@@ -21,8 +21,8 @@ def dashboard(request):
             alias = getAlias(6)
         try:
             # request.user.url_set(target_ur-url)
-            Url.objects.create(user=request.user,
-                               target_url=url, alias=alias).save()
+            Url.objects.get_or_create(user=request.user,
+                                      target_url=url, alias=alias).save()
             messages.success(request, "Shorted successfuly")
             return redirect("dashboard")
 
@@ -34,8 +34,8 @@ def dashboard(request):
 
 
 def redirect_to_target_page(request, alias):
-    obj = Url.objects.get(alias=alias)
-    URL = obj.target_url
+    obj = Url.objects.filter(alias=alias)
+    URL = obj[0].target_url
     return redirect(URL)
 
 
@@ -50,6 +50,4 @@ def stats(request, alias):
         'domain': site
 
     }
-    print(context)
-    # print(context['obj'].target_url)
     return render(request, 'stats.html', context)

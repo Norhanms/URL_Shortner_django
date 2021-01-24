@@ -30,7 +30,10 @@ function copyText(id) {
 
 if (aliasDashboard != null) {
     aliasDashboard.addEventListener('keyup', () => {
-        let reg = /^[a-z]/gi;
+        //let reg = /[a-z]/gi;
+        aliasDashboard.value = aliasDashboard.value.replace(new RegExp(".(?=.{0," + (aliasDashboard.value.length - 5) + "}$)", "g"), '')
+        //aliasDashboard.value = aliasDashboard.value.replace(reg, "");
         console.log(aliasDashboard.value)
+        console.log("reloaded")
     })
 }
