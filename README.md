@@ -8,3 +8,7 @@ create a virtual env first and then install all the required packages using the 
 ```
 pip install requirements.txt
 ```
+to run this app, type the following command n the terminal
+```
+python manage.py runserver
+```

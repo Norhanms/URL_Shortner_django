@@ -1,7 +1,6 @@
 const submitBtnHome = document.getElementById("submitBtnHome");
 const homeShortnerForm = document.getElementById('homeShortnerForm');
-const copyBtn = document.getElementById('copyBtn');
-
+const aliasDashboard = document.getElementById('aliasDashboard');
 if (submitBtnHome != null) {
 
     submitBtnHome.addEventListener('click', () => {
@@ -26,4 +25,12 @@ function copyText(id) {
     tooltip.show()
     //tooltip.hide()
 
+}
+/*==============================================*/
+
+if (aliasDashboard != null) {
+    aliasDashboard.addEventListener('keyup', () => {
+        let reg = /^[a-z]/gi;
+        console.log(aliasDashboard.value)
+    })
 }
