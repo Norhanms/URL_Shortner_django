@@ -12,3 +12,7 @@ to run this app, type the following command n the terminal
 ```
 python manage.py runserver
 ```
+### credit
+This app is created following this tutorial [a link](https://www.youtube.com/watch?v=ZlVBexrr0eA&list=PLW2yOazxkfjqU379WxLRyESZ2eI2M-Seq)
+and I have added more functionality such as dashboard statistics, home page form
+and javascript forms validation 
